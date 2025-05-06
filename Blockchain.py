@@ -1,12 +1,12 @@
-class Blockchain:
+class blockchain:
     def __init__(self, difficulty):
         self.chain = []
         self.difficulty = difficulty
         self.chain.append(self.create_genesis_block())
 
     def create_genesis_block(self):
-        genesis_transactions = [Transaction("none", "none", 0)]
-        return Block(0, genesis_transactions, "0")
+        genesis_transactions = [transaction("none", "none", 0)]
+        return block(0, genesis_transactions, "0")
 
     def get_last_block(self):
         return self.chain[-1]
