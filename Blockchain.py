@@ -31,3 +31,15 @@ class Blockchain:
             if current.previous_hash != previous.hash:
                 return False
         return True
+    
+    def print_chain(self):
+        for block in self.chain:
+            print("-" * 40)
+            print(f"Index: {block.index}")
+            print(f"Timestamp: {block.timestamp}")
+            print(f"Sender: {block.data.sender}")
+            print(f"Receiver: {block.data.receiver}")
+            print(f"Amount: {block.data.amount}")
+            print(f"Previous Hash: {block.previous_hash}")
+            print(f"Hash: {block.hash}")
+            print(f"Nonce: {block.nonce}")

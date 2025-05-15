@@ -28,7 +28,7 @@ def main():
                         print("Amount must be a number! Please try again.")
             
                 transaction = Transaction(sender, receiver, amount)
-                previous_hash = blockchain.get_last_block()
+                previous_hash = blockchain.get_last_block().hash
                 index = blockchain.get_new_index()
                 new_block = Block(transaction, previous_hash, index)
                 blockchain.add_block(new_block)
@@ -43,15 +43,8 @@ def main():
         
             case "3":
                 print("---BLOCKCHAIN---")
-                for block in blockchain.chain:
-                    print("-------------------------------")
-                    print(f"Index: {block.index}")
-                    print(f"Previous Hash: {block.previous_hash}")
-                    print(f"Timestamp: {block.timestamp}")
-                    print(f"Nonce: {block.nonce}")
-                    print(f"Hash: {block.hash}")
-                    print(f"Transaction data: {block.data}")
-                    print("-------------------------------")
+                blockchain.print_chain()
+                print("---END BLOCKCHAIN---")
     
             case "4":
                 print("GOODBYE!")
