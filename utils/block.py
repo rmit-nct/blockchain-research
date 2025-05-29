@@ -23,10 +23,8 @@ class Block():
         Compute the hash of the block using its attributes.
         :return: The hash of the block as a hexadecimal string.
         """
-        
         # Compute the hash of the block using its attributes
         return hashlib.sha256(f"{self.index}{self.previous_hash}{self.timestamp}{self.nonce}{self.data}".encode()).hexdigest()
-    
     
     def mine_block(self, difficulty):
         """

@@ -1,9 +1,14 @@
-from transaction import Transaction
-from block import Block
-from blockchain import Blockchain
+from utils.transaction import Transaction
+from utils.block import Block
+from utils.blockchain import Blockchain
 import time 
+import os
+
+def clear_screen():
+    os.system('cls' if os.name == 'nt' else 'clear')
 
 def main():
+    clear_screen()
     difficulty = 3
     blockchain = Blockchain(difficulty)
 
@@ -38,14 +43,15 @@ def main():
             case "2":
                 if blockchain.is_chain_valid():
                     print("Blockchain is valid.")
+                    input("Press Enter to continue...")
                 else:
                     print("Blockchain is NOT valid")
-        
+                    input("Press Enter to continue...")
             case "3":
                 print("---BLOCKCHAIN---")
                 blockchain.print_chain()
                 print("---END BLOCKCHAIN---")
-    
+                input("Press Enter to continue...")
             case "4":
                 print("GOODBYE!")
                 break
